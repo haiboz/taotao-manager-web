@@ -21,7 +21,7 @@ import com.taotao.service.ItemService;
 @RequestMapping("/item")
 public class ItemController {
 	@Autowired
-	public ItemService itemService;
+	public ItemService itemServiceImpl;
 	
 	/**
 	 * 查询一条记录 测试
@@ -31,7 +31,7 @@ public class ItemController {
 	@RequestMapping("{itemId}")
 	@ResponseBody
 	public TbItem getItemById(@PathVariable long itemId){
-		TbItem tbItem = itemService.getItemById(itemId);
+		TbItem tbItem = itemServiceImpl.getItemById(itemId);
 		return tbItem;
 	}
 	
@@ -44,7 +44,7 @@ public class ItemController {
 	@RequestMapping("list")
 	@ResponseBody
 	public EUDataGridResult getPageList(Integer page,Integer rows){
-		EUDataGridResult result = itemService.getItemList(page, rows);
+		EUDataGridResult result = itemServiceImpl.getItemList(page, rows);
 		return result;
 	}
 	
@@ -56,8 +56,21 @@ public class ItemController {
 	@RequestMapping(value="save",method=RequestMethod.POST)
 	@ResponseBody
 	public TaotaoResult createItem(TbItem item,String desc) throws Exception {
-		TaotaoResult reault = itemService.createItem(item,desc);
+		TaotaoResult reault = itemServiceImpl.createItem(item,desc);
 		return reault;
+	}
+	
+	/**
+	 * 获取规格模版列表
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
+	@RequestMapping("/param/list")
+	@ResponseBody
+	public EUDataGridResult getPageParamList(Integer page,Integer rows){
+		EUDataGridResult result = itemServiceImpl.getItemParamList(page, rows);
+		return result;
 	}
 	
 }
