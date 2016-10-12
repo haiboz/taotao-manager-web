@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbItem;
@@ -22,6 +21,8 @@ import com.taotao.service.ItemService;
 public class ItemController {
 	@Autowired
 	public ItemService itemServiceImpl;
+	
+	
 	
 	/**
 	 * 查询一条记录 测试
@@ -55,8 +56,8 @@ public class ItemController {
 	 */
 	@RequestMapping(value="save",method=RequestMethod.POST)
 	@ResponseBody
-	public TaotaoResult createItem(TbItem item,String desc) throws Exception {
-		TaotaoResult reault = itemServiceImpl.createItem(item,desc);
+	public TaotaoResult createItem(TbItem item,String desc,String itemParams) throws Exception {
+		TaotaoResult reault = itemServiceImpl.createItem(item,desc,itemParams);
 		return reault;
 	}
 	
@@ -72,5 +73,6 @@ public class ItemController {
 		EUDataGridResult result = itemServiceImpl.getItemParamList(page, rows);
 		return result;
 	}
+	
 	
 }

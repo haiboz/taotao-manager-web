@@ -97,7 +97,7 @@
 				if(data.status == 200){
 					$.messager.alert('提示','新增商品规格成功!',undefined,function(){
 						$(".panel-tool-close").click();
-    					$("#itemParamList").datagrid("reload");
+     					$("#itemParamList").datagrid("reload");
     				});
 				}
 			});
