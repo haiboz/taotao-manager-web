@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.EUTreeNode;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.service.ContentCategoryService;
 
 /**
@@ -22,14 +23,33 @@ public class ContentCategoryController {
 	@Autowired 
 	private ContentCategoryService contentCategoryServiceImpl;
 	
+	/**
+	 * 查询内容分裂列表
+	 * @param parentId
+	 * @return
+	 */
 	@RequestMapping("/list")
 	@ResponseBody
 	public List<EUTreeNode> getList(@RequestParam(value="id",defaultValue="0") Long parentId){
 		List<EUTreeNode> list = contentCategoryServiceImpl.getCategoryList(parentId);
 		return list;
-		
-		
 	}
+	
+	
+	/**
+	 * 新增内容分类
+	 * @param parentId
+	 * @param name
+	 * @return
+	 */
+	@RequestMapping("/create")
+	@ResponseBody
+	public TaotaoResult insertContentCagegory( Long parentId,String name){
+		TaotaoResult result = contentCategoryServiceImpl.insertContentCategory(parentId, name);
+		return result;
+	}
+	
+	
 	
 	
 	
