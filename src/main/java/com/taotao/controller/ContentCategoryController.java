@@ -49,8 +49,30 @@ public class ContentCategoryController {
 		return result;
 	}
 	
+	/**
+	 * 更新内容分类
+	 * @param id
+	 * @param name
+	 * @return
+	 */
+	@RequestMapping("/update")
+	@ResponseBody
+	public TaotaoResult updateContentCagegory( Long id,String name){
+		TaotaoResult result = contentCategoryServiceImpl.updateContentCategory(id, name);
+		return result;
+	}
 	
-	
-	
+	/**
+	 * 删除内容分类
+	 * @param parentId
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/delete")
+	@ResponseBody
+	public TaotaoResult deleteContentCagegory( Long parentId,Long id){
+		TaotaoResult result = contentCategoryServiceImpl.deleteContentCategory(parentId, id);
+		return result;
+	}
 	
 }

@@ -9,4 +9,6 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<bean id="itemParamBoImpl" class="com.taotao.bo.impl.ItemParamBoImpl"></bean>
+	<bean id="contentBoImpl" class="com.taotao.bo.impl.ContentBoImpl"></bean>
+	
 </beans>
