@@ -41,6 +41,32 @@ public class ContentController {
 		return result;
 	}
 	
+	/**
+	 * 修改内容
+	 * @param tbContent
+	 * @return
+	 */
+	@RequestMapping("/edit")
+	@ResponseBody
+	public TaotaoResult editContent(TbContent tbContent){
+		TaotaoResult result = contentServiceImpl.editContent(tbContent);
+		return result;
+	}
+	
+	/**
+	 * 批量删除内容
+	 * @param tbContent
+	 * @return
+	 */
+	@RequestMapping("/delete")
+	@ResponseBody
+	public TaotaoResult deleteContent(String ids){
+		TaotaoResult result = contentServiceImpl.deleteContent(ids);
+		return result;
+	}
+	
+	
+	
 	
 	
 }
